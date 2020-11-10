@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { BackgroundGeolocation } from '@ionic-native/background-geolocation/ngx';
 
 
 @NgModule({
@@ -13,6 +14,9 @@ import { HomePageRoutingModule } from './home-routing.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule
+  ],
+  providers:[
+    BackgroundGeolocation
   ],
   declarations: [HomePage]
 })

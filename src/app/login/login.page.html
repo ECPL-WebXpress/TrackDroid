@@ -1,0 +1,80 @@
+<ion-content class="ioncontent">
+  <ion-card class="card-center">
+    <ion-card-content class="card-background">
+      <ion-row *ngIf="IsCompanyExist" class="margin">
+        <ion-col class="ion-no-padding ion-no-margin">
+          <div padding>
+            <img [src]="CompanyLogo" *ngIf="CompanyLogo" alt="Portal" height="64px" />
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!IsCompanyExist" class="margin">
+        <ion-col class="ion-no-padding ion-no-margin">
+          <div padding>
+            <img src="" height="64px">
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="margin-left">
+        <ion-col class="padding-bottom ion-no-padding ion-no-margin">
+          <ion-text class="welcometext">WebXpress TrackDroid</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="margin-left">
+        <ion-col class="padding-bottom ion-no-padding ion-no-margin">
+          <ion-text class="detailtext">Your Transport Manager</ion-text>
+        </ion-col>
+      </ion-row>
+      <form [formGroup]="LoginForm" autocomplete="off" (ngSubmit)="Login()" novalidate>
+
+        <ion-row style="padding-top: 32px;">
+          <ion-col class="cell-class-input">
+            <ion-item lines="none" [class.invalid]="isSubmitted && loginerrorControl.Vehical_No.errors?.required">
+              <ion-label position="floating" class="ionlabel"> Vehicle number </ion-label>
+              <ion-input type="text" formControlName="Vehical_No" [(ngModel)]="VehicalNo"
+                placeholder="Enter vehicle number" expand="full"></ion-input>
+              <ion-text *ngIf="isSubmitted && loginerrorControl.Vehical_No.errors?.required" slot="end" class="textcolor">
+                (required)
+              </ion-text>
+              <ion-text *ngIf="isSubmitted && loginerrorControl.Vehical_No.errors?.minlength" slot="end"
+                class="textcolor">
+                Minimum 4 characters
+              </ion-text>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="cell-class-input">
+            <ion-item lines="none" [class.invalid]="isSubmitted && loginerrorControl.Mobile_No.errors?.required">
+              <ion-label position="floating" class="ionlabel"> Mobile number </ion-label>
+              <ion-input type="text" style="-webkit-text-security:disc !important;" formControlName="Mobile_No"
+                [(ngModel)]="MobileNo" placeholder="********" expand="full"></ion-input>
+              <ion-text *ngIf="isSubmitted && loginerrorControl.Mobile_No.errors?.required" slot="end" class="textcolor">
+                (required)
+              </ion-text>
+              <ion-text *ngIf="isSubmitted && loginerrorControl.Mobile_No.errors?.minlength" slot="end"
+                class="textcolor">
+                Minimum 4 characters
+              </ion-text>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button class="signinbutton" color="secondary" expand="block" type="submit">Start Tracking</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+      <ion-item lines="none" color="transparent" class="margin-top">
+        <ion-chip class="bgcolor padding-left">
+          <ion-checkbox color="secondadybtnlink" mode="md" [(ngModel)]="RememberMe" style="zoom: 1.2;opacity: 1;">
+          </ion-checkbox>
+          <ion-label style="font-weight: 500;">Remember me</ion-label>
+        </ion-chip>
+        <ion-text color="secondary" slot="end" class="padding-right">
+          Need Help?
+        </ion-text>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

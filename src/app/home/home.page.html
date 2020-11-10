@@ -1,20 +1,62 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Tracking</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
+  <ion-header>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="locate" class="iconsize"></ion-icon>
+      </ion-col>
+      <ion-col size="5">
+        <ion-label>Sharing Location Now</ion-label>
+      </ion-col>
+      <ion-col size="5">
+        <ion-button (click)="logout()">End Session</ion-button>
+      </ion-col>
+    </ion-row>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid class="ion-padding">
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="location" class="iconsize"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <ion-label class="ionlabel">About this app</ion-label>
+        <div>LogiCloud TrackDroid helps you tracker your movement while doing deliveries.It used the GPS in your device
+          to do this.</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="lock-open" class="iconsize"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <ion-label class="ionlabel"> Permission</ion-label>
+        <div>For TrackDroid to work,you need to enable location for it in the settings app.</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="globe" class="iconsize"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <ion-label class="ionlabel">Privacy</ion-label>
+        <div>Don't worry,your location is recorded only during your delivery sessions.It is onlu used for your safety
+          and efficiency.</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon name="battery-charging" class="iconsize"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <ion-label class="ionlabel">Battery consumption</ion-label>
+        <div>This app may affect your battery a little.We recommend that if you have long journey.Do keep your device
+          charged.</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
