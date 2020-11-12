@@ -1,10 +1,10 @@
 export interface Input {
-    GPSData:    GPSData;
-    DeviceID:   string;
-    VehicleID:  string;
-    CustomerID: string;
-    DateTime:   string;
-    Provider:   string;
+    GPSData?:    GPSData;
+    DeviceID?:   string;
+    VehicleID?:  string;
+    CustomerID?: string;
+    DateTime?:   string;
+    Provider?:   string;
 }
 
 export interface GPSData {

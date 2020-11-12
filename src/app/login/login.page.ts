@@ -61,14 +61,16 @@ export class LoginPage implements OnInit {
       }
 
       this._auth.GetTrackingMethods(this._auth.AUTHENTICATION, criteria)
-        .subscribe(res => {
-          if (res) {
+        .subscribe((res: LoginOutputModel) => {
+          debugger
+          loading.dismiss();
+          if (res.IsSuccess) {
             // res.VehicleNo = criteria.VehicleNo;
             this.localstorage.set("UserModel", JSON.stringify(res));
 
-            loading.dismiss();
             this._router.navigate(['/home']);
-          }
+          }else
+          alert(res.Message);
         })
      err => {
           console.error(err);

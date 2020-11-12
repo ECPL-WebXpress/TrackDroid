@@ -17,13 +17,9 @@ export class AuthServiceService {
 
    GetTrackingMethods(Mathod, input) {
     let httpOptions = {
-
-
+      
       "Ocp-Apim-Subscription-Key": "553271ec6b124c8bb08e8548ab6372d5",
       "Content-Type": "application/json"
-
-
-
     };
     return this.http.post(this.BASE_URL + Mathod, input, { headers: httpOptions });
   }

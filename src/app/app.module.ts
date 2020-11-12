@@ -12,6 +12,7 @@ import { Device } from '@ionic-native/device/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { HTTP } from '@ionic-native/http/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -24,6 +25,7 @@ import { HTTP } from '@ionic-native/http/ngx';
     SplashScreen,
     Storage,
     Device,
+    Geolocation,
     HTTP,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
