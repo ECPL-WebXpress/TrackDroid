@@ -26,9 +26,7 @@ export class LoginPage implements OnInit {
 
   constructor(public formBuilder: FormBuilder, private _auth: AuthServiceService,
     public loadingController: LoadingController,
-    public localstorage: Storage,
-
-    private _router: Router) {
+    public localstorage: Storage,private _router: Router) {
     this.LoginForm = formBuilder.group({
       Vehical_No: ['', [Validators.required, Validators.minLength(4)]],
       Mobile_No: ['', [Validators.required, Validators.minLength(4)]],
@@ -36,12 +34,12 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
-
+   
   }
 
   async Login() {
-    this.VehicalNo = "Gj05hn8468";
-    this.MobileNo = "1234567890";
+    // this.VehicalNo = "Gj05hn8468";
+    // this.MobileNo = "1234567890";
     // this._router.navigate(['/home']);
 
     setTimeout(async () => {
@@ -67,7 +65,6 @@ export class LoginPage implements OnInit {
           if (res.IsSuccess) {
             // res.VehicleNo = criteria.VehicleNo;
             this.localstorage.set("UserModel", JSON.stringify(res));
-
             this._router.navigate(['/home']);
           }else
           alert(res.Message);

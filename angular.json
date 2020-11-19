@@ -64,7 +64,8 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "ngswConfigPath": "ngsw-config.json"
             },
             "ci": {
               "progress": false

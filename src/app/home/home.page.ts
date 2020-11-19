@@ -16,6 +16,8 @@ export class HomePage {
 
   input: Input={};
   user: LoginOutputModel;
+  service;
+  Interval:120000;
   constructor(private _router: Router,private geolocation :Geolocation,
     public loadingController: LoadingController, private _auth: AuthServiceService, private localstorage: Storage) {
    
@@ -32,6 +34,7 @@ export class HomePage {
   }
 
   logout() {
+    clearInterval(this.service);
     this._router.navigate(['/login']);
   }
 
@@ -59,10 +62,14 @@ export class HomePage {
    });
   } 
   getBackgroundLocation() {
-    let watch = this.geolocation.watchPosition();
-    watch.subscribe((location:Geoposition) => {
+   
+    // let watch = this.geolocation.watchPosition({timeout:6000,maximumAge:5000});
+    // watch.subscribe((location:Geoposition) => {
      // data can be a set of coordinates, or an error (if an error occurred).
-
+     this.service=setInterval(() => {
+     
+      let watch = this.geolocation.getCurrentPosition();
+      watch.then((location:Geoposition) => {
           this.input.Provider="From Ionic";
           this.input.DateTime= formatDate(location.timestamp, "dd MMM yyyy hh:mm aaa", "en_us");
           if(location.coords){
@@ -81,7 +88,10 @@ export class HomePage {
           this.input.GPSData=gps;
           this.pushData(this.input);
           }
+       
     });
+  }, this.Interval);
+  
     // const config: BackgroundGeolocationConfig = {
     //   desiredAccuracy: 10,    
     //   stationaryRadius: 20,   
@@ -126,6 +136,7 @@ export class HomePage {
     // this.backgroundGeolocation.stop();
 
   }
+
   pushData(input) {
     // console.log("Input",input);
 
